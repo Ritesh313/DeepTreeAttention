@@ -19,7 +19,6 @@ class metadata(Module):
         x = self.batch_norm(x)        
         x = self.dropout(x)           
         x = self.mlp(x)
-        #x = F.relu(x)
         
         return x
     
@@ -55,7 +54,7 @@ class MetadataModel(main.TreeModel):
         """Train on a loaded dataset
         """
         #allow for empty data if data augmentation is generated
-        inputs, y = batch
+        individual, inputs, y = batch
         images = inputs["HSI"]
         metadata = inputs["site"]
         y_hat = self.model.forward(images, metadata)
@@ -68,7 +67,7 @@ class MetadataModel(main.TreeModel):
         """Train on a loaded dataset
         """
         #allow for empty data if data augmentation is generated
-        inputs, y = batch
+        individual, inputs, y = batch
         images = inputs["HSI"]   
         metadata = inputs["site"]
         
@@ -86,3 +85,6 @@ class MetadataModel(main.TreeModel):
         
         return loss
         
+    def predict(self):
+        self.model(inputs["HSI"], inputs["metadata"])
+    
