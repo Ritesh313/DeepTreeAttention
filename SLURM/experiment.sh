@@ -5,7 +5,7 @@ sbatch <<EOT
 #!/bin/bash
 #SBATCH --job-name=DeepTreeAttention   # Job name
 #SBATCH --mail-type=END               # Mail events
-#SBATCH --mail-user= riteshchoudhery313@gmail.com  # Where to send mail
+#SBATCH --mail-user=riteshchoudhery313@gmail.com  # Where to send mail
 #SBATCH --account=azare
 #SBATCH --nodes=1                 # Number of MPI ran
 #SBATCH --cpus-per-task=20
