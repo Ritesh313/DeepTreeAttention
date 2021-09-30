@@ -83,6 +83,6 @@ class MetadataModel(main.TreeModel):
         
         return loss
         
-    def predict(self):
-        self.model(inputs["HSI"], inputs["metadata"])
+    def predict(self, inputs):
+        self.model(inputs["HSI"], inputs["site"])
     
